@@ -6,7 +6,7 @@ body{
 	background: #f2f2f2; 
 
 }
-.one,
+#home,
 #about,
 #skill,
 #demo,
@@ -26,7 +26,19 @@ body{
 	width:1000px;
 	height: auto;
 }
-
+.title_en{
+	width: 130px;
+	height: 18px;
+	text-align: center;
+	font-size: 10px;
+	margin: 0 auto;
+	padding: 1px 0;
+	border-top: 2px solid #f00;
+}
+.title_en h2{
+	display: none;
+	color: red;
+}
 /*header*/
 header{
 	background: #999;
@@ -34,12 +46,23 @@ header{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 76px;
+	height: 70px;
 	z-index:100;
 }
-#header_p,#header_img{float: left;}
-#header_p{margin-left:15px;text-align: center;color: #000;}
-#header_p1{margin:0px 15px 5px;padding: 5px 15px; border-bottom:1px solid #333;width:50px;}
+#header_p,#header_img{
+	float: left;
+}
+#header_p{
+	margin-left:15px;
+	text-align: center;
+	color: #000;
+}
+#header_p1{
+	margin:0px 15px 5px;
+	padding: 5px 15px;
+	border-bottom:1px solid #333;
+	width:50px;
+}
 #header_p2{padding: 0 15px;}
 header img{
 	margin-top:8px;
@@ -51,34 +74,93 @@ header img:hover{
 	box-shadow: 0 0 15px #1faeff;
 	cursor: pointer;
 }
-#logo{float:left;margin:5px 30px;}
-nav{float:right;margin-top:14px;margin-right: 60px;}
-nav li{float:left;margin: 0 20px;list-style: none;}
-nav li a{color:#666;padding: 25px 0px;text-decoration: none;}
-nav li a:hover{color:#000;}
+#logo{
+	float:left;
+	margin:5px 30px;
+}
+nav{
+	float:right;
+	margin-top:14px;
+	margin-right: 60px;
+}
+nav li{
+	float:left;
+	margin: 0 20px;
+	list-style: none;
+}
+nav li a{
+	color:#666;
+	padding: 25px 0px;
+	text-decoration: none;
+	position: relative;
+}
+nav li a:hover{
+	color:#000;
+}
+nav li a:after{
+	content: '';
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	bottom: 0;
+	opacity: 0;
+	height:2px;
+	background: #1faeff;
+	transition:.2s ease-in;
+	-webkit-transition:.2s ease-in;
+}
+nav li a:hover:after{
+	opacity: 1;
+	left: 0;
+	right: 0;
+}
 /*end header*/
 /*aside*/
 /*home*/
-#section_one{
-	position:relative;
-	width:100%;
-	height:100%;
+#home{
+	display: none;
+}
+@keyframes zoom{
+	0%{
+		background-size: 130% 130%;
+	}
+	100%{
+		background-size: 100% 100%;
+	}
+}
+@-webkit-keyframes zoom{
+	0%{
+		background-size: 130% 130%;
+	}
+	100%{
+		background-size: 100% 100%;
+	}
+}
+.home_zoom{
+	animation:zoom 2s ease-in-out;
+	-webkit-animation:zoom 2s ease-in-out;
+}
+#home_head{
+	margin: 150px auto 30px;
+	width: 200px;
+	-webkit-trisition:margin-top 2s ease-in-out;
+	trisition:margin-top 2s ease-in-out;	
 }
 #home_head_content{
-	position: absolute;
-	top:100px;
-	left: 40%;
-}
-#home_info{
-	position: absolute;
-	top: 350px;
-	left: 35%;
+	position: relative;
+	margin: 0 auto;
+	width: 153.2px;
+	height: 153.2px;
+	cursor: pointer;
 }
 #home_head img{
+	width: 150px;
+	height: 150px;
+	border:2px solid #cccccc;
+	border-radius: 75px;
+	position: absolute;
 	-webkit-transition:box-shadow 1s;
-	transition: box-shadow 1s;
-	
-	border-radius: 200px;
+	transition: box-shadow 1s;	
 }
 #home_head img:hover{
 	box-shadow: 0 0 10px #ff0000;
@@ -95,10 +177,23 @@ nav li a:hover{color:#000;}
 #home_info_box
 {
 	border-top:2px solid #ccc;
+	width: 0px;
 	margin:15px auto;
 }
-#home_info1,#home_info2,#home_info3,#home_info4,#home_info5{
+#home_info1,
+#home_info2,
+#home_info3,
+#home_info4,
+#home_info5{
 	margin:15px auto;
+	display: none;
+	width: 800px;
+	text-align: center;
+}
+@media screen and (max-width: 1366px){
+	#home_info1{
+		font-size: 16px;
+	}
 }
 /*end home*/
 
@@ -393,7 +488,7 @@ nav li a:hover{color:#000;}
 	height: 150px;
 }
 /*contact*/
-#contact_header{
+#contact_head{
 	width: 100%;
 	margin: 40px auto 20px;
 }
@@ -419,11 +514,19 @@ nav li a:hover{color:#000;}
 #contact_header2 span:nth-child(4){
 	color:#f63;
 }
+.contact_header3{
+	text-align: center;
+	font-size: 20px;
+	margin-top: 50px;
+}
+.contact_scale{
+	margin-bottom: 10px;
+}
 footer{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	padding-top:20px;
+	padding-top:10px;
 	border-top: 2px solid #ccc;
 }
 .footer{
@@ -437,9 +540,5 @@ footer div a{
 footer div a:hover{
 	color: #930709;
 }
-.contact_header3{
-	text-align: center;
-	font-size: 20px;
-	margin-top: 50px;
-}
+
 
