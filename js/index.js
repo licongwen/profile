@@ -61,6 +61,32 @@ $(function () {
 				$(".title_en").animate({"width":"130px;"},800,function(){
 					$(".title_en h2").slideDown(400);
 				});
+				var i=-1;
+				$("#contact_header2 span").each(function(){
+					var $this=$(this);
+					if(!$this.hasClass('fade_in')){
+						i++;
+						setTimeout(function(){
+							$this.addClass('fade_in')
+						},200*i)
+					}
+				});
+				$(".first").addClass('fi');
+				$(".second").addClass('se');
+				$('.third').addClass('thi');
+				var j=-1;
+				setTimeout(function(){
+						$(".contact_scale ").each(function(){
+						var $this=$(this);
+						if(!$this.hasClass('fade_in')){
+							j++;
+							setTimeout(function(){
+								$this.addClass('fade_in');
+							},350*j)
+						}
+					});
+				}, 70);
+				
 			}
 		},
 		onLeave:function(index,nextIndex,direction){
